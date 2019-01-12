@@ -14,8 +14,11 @@ TODO: native and flexible splash
 - Shows a useful message to the user
 
 ## Basic useful components wrapping the native-base UI framework
-- Input (with icon: right, left, loader)
+- Input: themed with states (idle, error, loading) and sub-components (icon: right, left, loader)
+- Button: themed with states (idle, error, loading) and sub-components (icon: right, left, loader)
 - Icon (touchable with loader, simple icon without touchable)
+- Full width and height message banners: error, loading, empty, custom
+- TODO: describe other useful components
 note: you can remove native-base and implement your custom code without changing the client components
 note2: all the components use a theme you can define. See below
 
