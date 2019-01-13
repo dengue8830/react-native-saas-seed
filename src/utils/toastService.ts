@@ -1,10 +1,15 @@
 import * as React from 'react';
-import * as RNDropdownAlert from 'react-native-dropdownalert';
+import RNDropdownAlert from 'react-native-dropdownalert';
+
+enum Tipo {
+  Success = 'success',
+  Error = 'error'
+}
 
 interface IDropdownAlertOptions {
   titulo?: string;
   mensaje?: string;
-  tipo?: 'success' | 'error';
+  tipo?: Tipo;
   // imageSrc... etc
 }
 
@@ -19,19 +24,19 @@ class ToastService {
     this.dropdown = dropdown;
   }
 
-  getDropdown(): RNDropdownAlert {
+  getDropdown(): RNDropdownAlert | undefined {
     return this.dropdown;
   }
 
   show(opts: IDropdownAlertOptions = {}) {
-    !!this.dropdown && this.dropdown.alertWithType(opts.tipo, opts.titulo, opts.mensaje);
+    !!this.dropdown && this.dropdown.alertWithType(opts.tipo || Tipo.Success, opts.titulo || '', opts.mensaje || '');
   }
 
   showExito(opts: IDropdownAlertOptions = {}) {
     this.show({
       titulo: opts.titulo || 'Listo!',
       mensaje: opts.mensaje || '',
-      tipo: 'success'
+      tipo: Tipo.Success
     });
   }
 
@@ -40,7 +45,7 @@ class ToastService {
     this.show({
       titulo: opts.titulo || 'Ups!',
       mensaje: opts.mensaje || 'Se produjo un error, intenta de nuevo',
-      tipo: 'error'
+      tipo: Tipo.Error
     });
   }
 }
