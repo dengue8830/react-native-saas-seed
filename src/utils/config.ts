@@ -15,9 +15,9 @@ import Config from 'react-native-config'
 export class CConfig {
 
   static getServerUrl(): string {
-    const prodUrl = 'http://3.17.127.65:8080';
-    // const devUrl = 'http://3.17.127.65:8080';
-    const devUrl = 'http://186.190.159.84:8080';
+    // TODO: deberia configurarse con .env
+    const prodUrl = 'http://google.com';
+    const devUrl = 'http://google.com';
     return CConfig.isDevelopment() ? devUrl : prodUrl;
   }
 
