@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply from: project(":react-native-config").projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 
@@ -36,6 +37,8 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        // react-native-config
+        resValue "string", "build_config_package", "com.taxitul"
     }
     splits {
         abi {
@@ -48,10 +51,10 @@ android {
     signingConfigs {
         release {
             // TODO: Ver forma mas segura
-            storeFile file("some.jks")
-            storePassword "xxx"
-            keyAlias "alias"
-            keyPassword "xxx"
+            storeFile file(project.env.get("ANDROID_JKS_FILE"))
+            storePassword project.env.get("ANDROID_STORE_PASSWORD")
+            keyAlias project.env.get("ANDROID_KEY_ALIAS")
+            keyPassword project.env.get("ANDROID_KEY_PASSWORD")
             // Para usar esta forma, hay que crear un keystore y pegarlo en android/app, esta forma se explica bien en la doc de react native para generar release
             // storeFile file(MYAPP_RELEASE_STORE_FILE)
             // storePassword MYAPP_RELEASE_STORE_PASSWORD
