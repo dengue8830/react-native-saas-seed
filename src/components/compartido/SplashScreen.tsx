@@ -32,41 +32,46 @@ export class SplashScreen extends React.Component<IProps, IState> {
   }
 
   async componentDidMount() {
-    if (!await http.isConnected()) {
-      this.setState({
-        estadoCarga: EstadoCarga.Error,
-        msj: 'No estás conectado a internet, revisa tu conexión y vuelve a intentarlo'
-      });
-      return;
-    }
-    // http.setCredenciales(await apis.getTokenInvitado());
-    if (!await apis.isServerOnline()) {
-      this.setState({
-        estadoCarga: EstadoCarga.Error,
-        msj: 'El servicio no está disponible, intenta de nuevo en unos minutos'
-      });
-      return;
-    }
-    const tokenInvitado = await apis.getTokenInvitado();
-    appState.init();
-    const sesion = await SStorage.getSesion();
-    const token = await SStorage.getToken();
-    if (sesion && token) {
-      if (await apis.isTokenValido(token)) {
-        await this.initApp();
-        loginService.afterLogin(token, sesion, this.props.history);
+    try {
+      if (!await http.isConnected()) {
+        this.setState({
+          estadoCarga: EstadoCarga.Error,
+          msj: 'No estás conectado a internet, revisa tu conexión y vuelve a intentarlo'
+        });
+        return;
+      }
+      // http.setCredenciales(await apis.getTokenInvitado());
+      if (!await apis.isServerOnline()) {
+        this.setState({
+          estadoCarga: EstadoCarga.Error,
+          msj: 'El servicio no está disponible, intenta de nuevo en unos minutos'
+        });
+        return;
+      }
+      const tokenInvitado = await apis.getTokenInvitado();
+      appState.init();
+      const sesion = await SStorage.getSesion();
+      const token = await SStorage.getToken();
+      if (sesion && token) {
+        if (await apis.isTokenValido(token)) {
+          await this.initApp();
+          loginService.afterLogin(token, sesion, this.props.history);
+        } else {
+          await SStorage.cerrarSesion();
+          http.setCredenciales(tokenInvitado);
+          await this.initApp();
+          // await this.props.spinnerGlobalSC.hide();
+          this.props.history.push(Rutas.login);
+        }
       } else {
-        await SStorage.cerrarSesion();
         http.setCredenciales(tokenInvitado);
         await this.initApp();
         // await this.props.spinnerGlobalSC.hide();
         this.props.history.push(Rutas.login);
       }
-    } else {
-      http.setCredenciales(tokenInvitado);
-      await this.initApp();
-      // await this.props.spinnerGlobalSC.hide();
-      this.props.history.push(Rutas.login);
+    } catch (error) {
+      this.setState({ estadoCarga: EstadoCarga.Error });
+      this.props.history.push(Rutas.helloWorld); // quitar
     }
   }
 
