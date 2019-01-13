@@ -5,7 +5,10 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios --simulator='iPhone 6s Plus'",
+    "build-android-release": "cd android/ && ./gradlew assembleRelease"
   },
   "dependencies": {
     "axios": "0.18.0",
