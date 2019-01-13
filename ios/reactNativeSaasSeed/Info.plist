@@ -57,11 +57,34 @@
     <array>
       <string>location</string>
     </array>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>App requires background tracking</string>
+    <!-- Permisos para geoposicion -->
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>App requires background tracking</string>
+    <string>Necesitamos acceder a tu ubicación</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Necesitamos acceder a tu ubicación</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Necesitamos acceder a tu ubicación</string>
     <key>NSMotionUsageDescription</key>
-    <string>App requires motion tracking</string>
+    <string>Necesitamos detectar el movimiento para un mejor uso de tu ubicación</string>
+    <!-- Permisos necesarios para react-native-permissions -->
+    <key>NSAppleMusicUsageDescription</key>
+    <string>Necesitamos acceder a AppleMusic</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Necesitamos acceder al bluetooth</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Necesitamos acceder al calendario</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Necesitamos acceder a la cámara</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Necesitamos guardar las fotos que tomes en tu galería de fotos</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Necesitamos acceder a tu galería de fotos</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Necesitamos acceder al micrófono para los videos</string>
+    <!-- La fuente a usar en la app -->
+    <key>UIAppFonts</key>
+    <array>
+      <string>SFUIDisplay-Regular.ttf</string>
+    </array>
   </dict>
 </plist>
