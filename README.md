@@ -41,3 +41,5 @@ note: the main concern is allow a SaaS (software as a service) project so the na
 - General error boundary to catch the root tree component error
 
 ## Typescript
+
+// Me quede en actualizacion de gradle, la generacion del build release, y faltaba instalacion de parte nativa empezando por ios
