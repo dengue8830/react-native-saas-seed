@@ -38,7 +38,7 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
         // react-native-config
-        resValue "string", "build_config_package", "com.taxitul"
+        resValue "string", "build_config_package", "com.reactnativesaasseed"
     }
     splits {
         abi {
@@ -85,6 +85,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-mauron85-background-geolocation')
     implementation project(':react-native-config')
     implementation project(':react-native-device-info')
     implementation fileTree(dir: "libs", include: ["*.jar"])
