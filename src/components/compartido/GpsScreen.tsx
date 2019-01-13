@@ -25,6 +25,7 @@ export class GpsScreen extends React.Component<IProps, IState> {
       estadoCarga: EstadoCarga.Ocioso,
       msjGps: ''
     };
+    this.onPressObtenerPosicionGPS = this.onPressObtenerPosicionGPS.bind(this);
   }
 
   componentDidMount() {

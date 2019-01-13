@@ -109,8 +109,8 @@ export function CartelCargando(props: ICartelGenericoProps) {
  * @param props 
  */
 export function CartelError(props: ICartelGenericoProps) {
-  // const imgIconName = noTieneImagen(props) ? 'ios-bug-outline' : props.imgIconName;
-  const imgIconName = 'ios-bug-outline';
+  // const imgIconName = noTieneImagen(props) ? 'ios-bug' : props.imgIconName;
+  const imgIconName = 'ios-bug';
   const texto = props.texto || 'Ups! se produjo un error, inténtalo de nuevo';
   return CartelGenerico({ ...props, texto, imgIconName });
 }

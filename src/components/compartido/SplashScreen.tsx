@@ -32,6 +32,8 @@ export class SplashScreen extends React.Component<IProps, IState> {
   }
 
   async componentDidMount() {
+this.props.history.push(Rutas.helloWorld); // quitar
+return;
     try {
       if (!await http.isConnected()) {
         this.setState({
@@ -71,7 +73,6 @@ export class SplashScreen extends React.Component<IProps, IState> {
       }
     } catch (error) {
       this.setState({ estadoCarga: EstadoCarga.Error });
-      this.props.history.push(Rutas.helloWorld); // quitar
     }
   }
 

@@ -1,92 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-    <key>CFBundleDevelopmentRegion</key>
-    <string>en</string>
-    <key>CFBundleDisplayName</key>
-    <string>reactNativeSaasSeed</string>
-    <key>CFBundleExecutable</key>
-    <string>$(EXECUTABLE_NAME)</string>
-    <key>CFBundleIdentifier</key>
-    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-    <key>CFBundleInfoDictionaryVersion</key>
-    <string>6.0</string>
-    <key>CFBundleName</key>
-    <string>$(PRODUCT_NAME)</string>
-    <key>CFBundlePackageType</key>
-    <string>APPL</string>
-    <key>CFBundleShortVersionString</key>
-    <string>1.0</string>
-    <key>CFBundleSignature</key>
-    <string>????</string>
-    <key>CFBundleVersion</key>
-    <string>1</string>
-    <key>LSRequiresIPhoneOS</key>
-    <true/>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>App requires background tracking</string>
-    <key>UILaunchStoryboardName</key>
-    <string>LaunchScreen</string>
-    <key>UIRequiredDeviceCapabilities</key>
-    <array>
-      <string>armv7</string>
-    </array>
-    <key>UISupportedInterfaceOrientations</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationLandscapeLeft</string>
-      <string>UIInterfaceOrientationLandscapeRight</string>
-    </array>
-    <key>UIViewControllerBasedStatusBarAppearance</key>
-    <false/>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-      <key>NSAllowsArbitraryLoads</key>
-      <true/>
-      <key>NSExceptionDomains</key>
-      <dict>
-        <key>localhost</key>
-        <dict>
-          <key>NSExceptionAllowsInsecureHTTPLoads</key>
-          <true/>
-        </dict>
-      </dict>
-    </dict>
-    <key>UIBackgroundModes</key>
-    <array>
-      <string>location</string>
-    </array>
-    <!-- Permisos para geoposicion -->
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Necesitamos acceder a tu ubicación</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Necesitamos acceder a tu ubicación</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Necesitamos acceder a tu ubicación</string>
-    <key>NSMotionUsageDescription</key>
-    <string>Necesitamos detectar el movimiento para un mejor uso de tu ubicación</string>
-    <!-- Permisos necesarios para react-native-permissions -->
-    <key>NSAppleMusicUsageDescription</key>
-    <string>Necesitamos acceder a AppleMusic</string>
-    <key>NSBluetoothPeripheralUsageDescription</key>
-    <string>Necesitamos acceder al bluetooth</string>
-    <key>NSCalendarsUsageDescription</key>
-    <string>Necesitamos acceder al calendario</string>
-    <key>NSCameraUsageDescription</key>
-    <string>Necesitamos acceder a la cámara</string>
-    <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>Necesitamos guardar las fotos que tomes en tu galería de fotos</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Necesitamos acceder a tu galería de fotos</string>
-    <key>NSSpeechRecognitionUsageDescription</key>
-    <string>Necesitamos acceder al micrófono para los videos</string>
-    <!-- La fuente a usar en la app -->
-    <key>UIAppFonts</key>
-    <array>
-      <string>Ionicons.ttf</string>
-      <string>SFUIDisplay-Regular.ttf</string>
-		  <string>SFUIDisplay-Semibold.ttf</string>
-    </array>
-  </dict>
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>reactNativeSaasSeed</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Necesitamos acceder a tu ubicación</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Necesitamos acceder a tu ubicación</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Necesitamos acceder a tu ubicación</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Necesitamos detectar el movimiento para un mejor uso de tu ubicación</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Necesitamos acceder a AppleMusic</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Necesitamos acceder al bluetooth</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Necesitamos acceder al calendario</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Necesitamos acceder a la cámara</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Necesitamos guardar las fotos que tomes en tu galería de fotos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Necesitamos acceder a tu galería de fotos</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Necesitamos acceder al micrófono para los videos</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Ionicons.ttf</string>
+		<string>SFUIDisplay-Regular.ttf</string>
+		<string>SFUIDisplay-Semibold.ttf</string>
+	</array>
+</dict>
 </plist>
