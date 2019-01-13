@@ -1,6 +1,6 @@
 import { PermissionsAndroid, Platform, Permission } from 'react-native';
 import Permissions from 'react-native-permissions';
-import firebase from 'react-native-firebase';
+// import firebase from 'react-native-firebase';
 import BackgroundGeolocation from 'react-native-mauron85-background-geolocation';
 
 export enum TipoPermisoUbicacion {
@@ -71,14 +71,14 @@ export class PermisosUtil {
     BackgroundGeolocation.showAppSettings();
   }
 
-  static async solicitarPermisosParaRecibirEnviarPush(): Promise<boolean> {
-    if (!await firebase.messaging().hasPermission()) {
-      try {
-        await firebase.messaging().requestPermission();
-      } catch (error) {
-        return false;
-      }
-    }
-    return true;
-  }
+  // static async solicitarPermisosParaRecibirEnviarPush(): Promise<boolean> {
+  //   if (!await firebase.messaging().hasPermission()) {
+  //     try {
+  //       await firebase.messaging().requestPermission();
+  //     } catch (error) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // }
 }
