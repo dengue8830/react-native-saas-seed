@@ -38,9 +38,8 @@ export const Input = (props: IProps) => {
       style={[
         {
           borderRadius: 10,
-          shadowOffset: { width: 10, height: 10, },
-          // shadowColor: '#757575',
-          shadowOpacity: 0.6,
+          shadowOffset: { width: 5, height: 5, },
+          shadowOpacity: 0.2,
           shadowRadius: 10,
           borderWidth: 0.5,
           borderColor: theme.borde,

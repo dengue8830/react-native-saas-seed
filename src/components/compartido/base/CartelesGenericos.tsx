@@ -9,7 +9,6 @@ import {
   ActivityIndicator
 } from 'react-native';
 import { Text } from './Text';
-import { TouchableIcon } from './TouchableIcon';
 import { Icon } from './Icon';
 import { estilosDeEmpresa } from '../../../styles/estilosDeEmpresa';
 
@@ -110,7 +109,7 @@ export function CartelCargando(props: ICartelGenericoProps) {
  */
 export function CartelError(props: ICartelGenericoProps) {
   // const imgIconName = noTieneImagen(props) ? 'ios-bug' : props.imgIconName;
-  const imgIconName = 'ios-bug';
+  const imgIconName = 'ios-bug-outline';
   const texto = props.texto || 'Ups! se produjo un error, inténtalo de nuevo';
   return CartelGenerico({ ...props, texto, imgIconName });
 }
