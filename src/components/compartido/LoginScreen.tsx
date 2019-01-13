@@ -53,7 +53,8 @@ export class LoginScreen extends React.Component<IProps, IState> {
     }
     try {
       const loginData = await loginService.login(values.username, values.pass);
-      loginService.afterLogin(loginData.token!, loginData.sesion!, this.props.history);
+      // loginService.afterLogin(loginData.token!, loginData.sesion!, this.props.history);
+      loginService.afterLogin('faketoken', { usuario: { id: '', isInvitado: true } }, this.props.history);
     } catch (error) {
       if (error.message === 'credenciales') {
         actions.setStatus('Usuario o contraseña incorrectos');
