@@ -28,6 +28,8 @@ target 'reactNativeSaasSeed' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
 end
 
 # FIX to react-native-maps linking error duplicate symbols
