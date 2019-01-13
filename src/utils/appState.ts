@@ -3,11 +3,6 @@ import { PermisosUtil, TipoPermiso, EstadoPermiso } from './permisosUtils';
 import { LocationService } from './locationService';
 import { http } from './http';
 
-export enum EstadoGPS {
-  Encendido = 'encendido',
-  Apagado = 'apagado'
-}
-
 export interface IAppStateListener {
   onForeground?: () => void;
   onBackground?: () => void;
