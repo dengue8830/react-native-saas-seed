@@ -12,6 +12,7 @@ import { Text } from './base/Text';
 import { Button } from './base/Button';
 import { Icon } from './base/Icon';
 import { TouchableIcon } from './base/TouchableIcon';
+import { toastService } from '../../utils/toastService';
 
 interface IProps extends RouteComponentProps {
 }
@@ -55,6 +56,7 @@ export class LoginScreen extends React.Component<IProps, IState> {
       const loginData = await loginService.login(values.username, values.pass);
       // loginService.afterLogin(loginData.token!, loginData.sesion!, this.props.history);
       loginService.afterLogin('faketoken', { usuario: { id: '', isInvitado: true } }, this.props.history);
+      toastService.show();
     } catch (error) {
       if (error.message === 'credenciales') {
         actions.setStatus('Usuario o contraseña incorrectos');
