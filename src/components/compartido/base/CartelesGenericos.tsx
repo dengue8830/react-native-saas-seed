@@ -98,8 +98,8 @@ export function CartelVacio(props: ICartelGenericoProps) {
  * @param props 
  */
 export function CartelCargando(props: ICartelGenericoProps) {
-  // const imgElement = noTieneImagen(props) ? <ActivityIndicator color='#757575' size={30} /> : props.imgElement;
-  const imgElement = <ActivityIndicator color={estilosDeEmpresa.defecto.screen.colores.note} size={30} />;
+  // const imgElement = noTieneImagen(props) ? <ActivityIndicator color='#757575' size='small' /> : props.imgElement;
+  const imgElement = <ActivityIndicator color={estilosDeEmpresa.defecto.screen.colores.note} size='large' />;
   const texto = props.texto || 'Espere...';
   return CartelGenerico({ ...props, texto, imgElement });
 }
