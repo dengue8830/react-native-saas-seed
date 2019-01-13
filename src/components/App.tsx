@@ -81,8 +81,8 @@ export default class App extends Component<Props, State> implements IAppStateLis
               hidden={true}
             />
             <ErrorBoundary msj={MsjErrorSalir}>
-              {/* <Route exact={true} path={'/'} component={TestVisualScreen} /> */}
-              <Route exact={true} path={Rutas.splash} component={SplashScreen} />
+              <Route exact={true} path={'/'} component={TestVisualScreen} />
+              {/* <Route exact={true} path={Rutas.splash} component={SplashScreen} /> */}
               <Route exact={true} path={Rutas.login} component={LoginScreen} />
               <Route exact={true} path={Rutas.helloWorld} component={GpsScreen} />
             </ErrorBoundary>

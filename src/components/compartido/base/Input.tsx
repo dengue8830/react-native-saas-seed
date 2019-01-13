@@ -4,6 +4,7 @@ import { TextInputProps, ViewStyle, ActivityIndicator, ActivityIndicatorProps } 
 import { TouchableIcon, ITouchableIconProps } from './TouchableIcon';
 import { estilosDeEmpresa } from '../../../styles/estilosDeEmpresa';
 import { IThemeInput, IColorInput } from '../../../styles/estilosDeEmpresaTypes';
+import { SIN_COLOR, StyleUtils } from '../../../utils/styleUtils';
 
 interface IProps {
   // containerProps?: NativeBase.Item;
@@ -85,7 +86,7 @@ export const Input = (props: IProps) => {
       />
       {
         props.isLoading &&
-        renderChild(<ActivityIndicator size='small' style={{ paddingRight: 5 }} />, props, theme)
+        renderChild(<ActivityIndicator color={SIN_COLOR} size='small' style={{ paddingRight: 5 }} />, props, theme)
       }
       {
         props.rightIcon &&
@@ -123,7 +124,7 @@ function renderChild(element: React.ReactElement<any>, props: IProps, theme: ICo
     // Por defecto trae null, lo cual cuenta y pisa nuestro color, asi que hay que separarlo
     const { color, ...resto } = el.props;
     return React.cloneElement(el, {
-      color: color || theme.contraste,
+      color: StyleUtils.existeColor(color) ? color : theme.contraste,
       ...resto
     });
   }

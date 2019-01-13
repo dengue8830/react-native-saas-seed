@@ -8,6 +8,7 @@ import { CartelCargando, CartelError } from './base/CartelesGenericos';
 import { Button } from './base/Button';
 import { LocationService } from '../../utils/locationService';
 import { TipoPermisoUbicacion } from '../../utils/permisosUtils';
+import { toastService } from '../../utils/toastService';
 
 interface IProps extends RouteComponentProps {
 }
@@ -41,13 +42,14 @@ export class GpsScreen extends React.Component<IProps, IState> {
   }
 
   async onPressObtenerPosicionGPS() {
-    this.setState({ estadoCarga: EstadoCarga.Cargando });
-    try {
-      const location = await LocationService.getCurrentLocation(TipoPermisoUbicacion.CUANDO_SE_USE);
-      this.setState({ msjGps: location.latitude + ' ' + location.longitude, estadoCarga: EstadoCarga.Ocioso });
-    } catch (error) {
-      this.setState({ estadoCarga: EstadoCarga.Error });
-    }
+    // this.setState({ estadoCarga: EstadoCarga.Cargando });
+    // try {
+    //   const location = await LocationService.getCurrentLocation(TipoPermisoUbicacion.CUANDO_SE_USE);
+    //   this.setState({ msjGps: location.latitude + ' ' + location.longitude, estadoCarga: EstadoCarga.Ocioso });
+    // } catch (error) {
+    //   this.setState({ estadoCarga: EstadoCarga.Error });
+    // }
+    toastService.showError();
   }
 
   public render() {

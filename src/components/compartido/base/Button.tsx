@@ -3,6 +3,7 @@ import { Button as NBButton } from 'native-base';
 import { ViewStyle, ActivityIndicator, ActivityIndicatorProps, RegisteredStyle } from 'react-native';
 import { IThemeButton, IColorButton } from '../../../styles/estilosDeEmpresaTypes';
 import { estilosDeEmpresa } from '../../../styles/estilosDeEmpresa';
+import { SIN_COLOR, StyleUtils } from '../../../utils/styleUtils';
 
 interface IProps {
   // children: React.ReactElement<any>;
@@ -53,7 +54,7 @@ export const Button = (props: IProps) => {
       {
         props.isLoading
           ?
-          renderChild(<ActivityIndicator size='small' style={{ paddingRight: 10 }} />, style)
+          renderChild(<ActivityIndicator color={SIN_COLOR} size='small' style={{ paddingRight: 10 }} />, style)
           :
           props.right && renderChild(props.right, style)
       }
@@ -77,7 +78,7 @@ function renderChild(element: React.ReactElement<any>, theme: IColorButton): Rea
     // Por defecto trae null, lo cual cuenta y pisa nuestro color, asi que hay que separarlo
     const { color, ...resto } = el.props;
     return React.cloneElement(el, {
-      color: color || theme.contraste,
+      color: StyleUtils.existeColor(color) ? color : theme.contraste,
       ...resto
     });
   }
