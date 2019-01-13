@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { BackHandler } from 'react-native';
-import { CartelError } from './MensajesGenericos';
+import { CartelError } from './CartelesGenericos';
 import { Container } from './Container';
 
 interface IProps extends RouteComponentProps {

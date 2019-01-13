@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CartelError } from './MensajesGenericos';
+import { CartelError } from './CartelesGenericos';
 import { Button } from './Button';
 import { loginService } from '../../../utils/loginService';
 import { navegacionService } from '../../../utils/navegacionService';
