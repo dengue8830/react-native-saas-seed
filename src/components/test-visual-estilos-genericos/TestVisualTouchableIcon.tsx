@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { TouchableIcon } from '../compartido/TouchableIcon';
-import { Text } from '../compartido/Text';
+import { TouchableIcon } from '../compartido/base/TouchableIcon';
+import { Text } from '../compartido/base/Text';
 
 interface IProps {
 }

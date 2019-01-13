@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { Text } from '../compartido/Text';
+import { Text } from '../compartido/base/Text';
 
 interface IProps {
 }
