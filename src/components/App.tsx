@@ -15,7 +15,7 @@ import { loginService } from '../utils/loginService';
 import { ErrorBoundary, MsjErrorSalir } from './compartido/base/ErrorBoundary';
 import { estilosDeEmpresa } from '../styles/estilosDeEmpresa';
 import { TestVisualScreen } from './test-visual-estilos-genericos/TestVisualScreen';
-import { SplashScreenConnected } from './compartido/SplashScreen';
+import { SplashScreen } from './compartido/SplashScreen';
 import { CConfig } from '../utils/config';
 import 'moment/locale/es';
 import { Rutas } from '../utils/rutas';
@@ -82,7 +82,7 @@ export default class App extends Component<Props, State> implements IAppStateLis
             />
             <ErrorBoundary msj={MsjErrorSalir}>
               {/* <Route exact={true} path={'/'} component={TestVisualScreen} /> */}
-              <Route exact={true} path={Rutas.splash} component={SplashScreenConnected} />
+              <Route exact={true} path={Rutas.splash} component={SplashScreen} />
               <Route exact={true} path={Rutas.login} component={LoginScreen} />
               <Route exact={true} path={Rutas.helloWorld} component={GpsScreen} />
             </ErrorBoundary>

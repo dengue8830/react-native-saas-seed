@@ -19,5 +19,29 @@ export const apis = {
   },
   cerrarSesion: () => {
 
+  },
+  getTokenInvitado: async () => {
+    const res = await http.get<{ token: string }>(APIs.TOKEN_INVITADO);
+    return res.data.token;
+  },
+  checkServerStatus: async () => {
+    return await http.get(APIs.CHECK_SERVER_STATUS);
+  },
+  isTokenValido: async (token: string) => {
+    http.setCredenciales(token);
+    try {
+      await http.post(APIs.CHECK_TOKEN);
+    } catch {
+      return false;
+    }
+    return true;
+  },
+  isServerOnline: async () => {
+    try {
+      await apis.checkServerStatus();
+      return true;
+    } catch (error) {
+      return false;
+    }
   }
 };
