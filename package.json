@@ -60,5 +60,10 @@
     "modulePaths": [
       "<rootDir>"
     ]
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }

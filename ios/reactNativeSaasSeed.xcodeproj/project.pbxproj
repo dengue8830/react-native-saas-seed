@@ -39,6 +39,9 @@
 		9D657898434789B9B5B5FE6D /* libPods-reactNativeSaasSeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA5B60AF97A1E9CF0AF5A17 /* libPods-reactNativeSaasSeed.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		7613841B1A2746DDA385DC03 /* libRCTBackgroundGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBD694AF9FE4215885F51FE /* libRCTBackgroundGeolocation.a */; };
+		9F5AE91AE68340D39763E867 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77A21F796CA0401F8340103A /* Ionicons.ttf */; };
+		C7EA41D6DA354B4A89B00435 /* SFUIDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 530E5252FAF743BA8F428551 /* SFUIDisplay-Regular.ttf */; };
+		BE574AC182A9433AB86B8474 /* SFUIDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A4A4E2200542EE93F9A137 /* SFUIDisplay-Semibold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -349,6 +352,9 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		9B21EA21B0C145FB9504C88A /* RCTBackgroundGeolocation.xcodeproj */ = {isa = PBXFileReference; name = "RCTBackgroundGeolocation.xcodeproj"; path = "../node_modules/react-native-mauron85-background-geolocation/ios/RCTBackgroundGeolocation.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		FBBD694AF9FE4215885F51FE /* libRCTBackgroundGeolocation.a */ = {isa = PBXFileReference; name = "libRCTBackgroundGeolocation.a"; path = "libRCTBackgroundGeolocation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		77A21F796CA0401F8340103A /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../assets/fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		530E5252FAF743BA8F428551 /* SFUIDisplay-Regular.ttf */ = {isa = PBXFileReference; name = "SFUIDisplay-Regular.ttf"; path = "../assets/fonts/SFUIDisplay-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		59A4A4E2200542EE93F9A137 /* SFUIDisplay-Semibold.ttf */ = {isa = PBXFileReference; name = "SFUIDisplay-Semibold.ttf"; path = "../assets/fonts/SFUIDisplay-Semibold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +594,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				92D6BFB1BB4CD287E7442050 /* Pods */,
+				20F1ED0D11E046B6AA361DDC /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -622,6 +629,17 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		20F1ED0D11E046B6AA361DDC /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				77A21F796CA0401F8340103A /* Ionicons.ttf */,
+				530E5252FAF743BA8F428551 /* SFUIDisplay-Regular.ttf */,
+				59A4A4E2200542EE93F9A137 /* SFUIDisplay-Semibold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1070,6 +1088,9 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				9F5AE91AE68340D39763E867 /* Ionicons.ttf in Resources */,
+				C7EA41D6DA354B4A89B00435 /* SFUIDisplay-Regular.ttf in Resources */,
+				BE574AC182A9433AB86B8474 /* SFUIDisplay-Semibold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -84,7 +84,9 @@
     <!-- La fuente a usar en la app -->
     <key>UIAppFonts</key>
     <array>
+      <string>Ionicons.ttf</string>
       <string>SFUIDisplay-Regular.ttf</string>
+		  <string>SFUIDisplay-Semibold.ttf</string>
     </array>
   </dict>
 </plist>

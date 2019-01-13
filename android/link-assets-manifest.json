@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Ionicons.ttf",
+      "sha1": "0f7956704fe61b49c41ea1a22051240f700a2b44"
+    },
+    {
+      "path": "assets/fonts/SFUIDisplay-Regular.ttf",
+      "sha1": "725d4f25a56647a2ba60c125c7d0548cdafdc4cd"
+    },
+    {
+      "path": "assets/fonts/SFUIDisplay-Semibold.ttf",
+      "sha1": "1618c2afa7fc4adbce87ad1dbd8e7b57eff826a1"
+    }
+  ]
+}
