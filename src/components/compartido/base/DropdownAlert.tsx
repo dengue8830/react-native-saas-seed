@@ -18,8 +18,8 @@ interface IProps {
 export const DropdownAlert = (props: IProps) =>
   <RNDropdownAlert
     ref={props.refProp}
-    successImageSrc={require('../../images/check.png')}
-    errorImageSrc={require('../../images/error.png')}
+    successImageSrc={require('../../../images/check.png')}
+    errorImageSrc={require('../../../images/error.png')}
     successColor={estilosDeEmpresa.defecto.colorPrimario}
     errorColor={estilosDeEmpresa.defecto.colorError}
     updateStatusBar={false}
