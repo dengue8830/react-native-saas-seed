@@ -32,6 +32,8 @@ target 'reactNativeSaasSeed' do
   pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
   pod 'ReactNativePermissions', :path => '../node_modules/react-native-permissions'
 
+  pod 'react-native-config', :path => '../node_modules/react-native-config'
+
 end
 
 # FIX to react-native-maps linking error duplicate symbols
