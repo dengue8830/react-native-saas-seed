@@ -50,7 +50,6 @@ android {
     }
     signingConfigs {
         release {
-            // TODO: Ver forma mas segura
             storeFile file(project.env.get("ANDROID_JKS_FILE"))
             storePassword project.env.get("ANDROID_STORE_PASSWORD")
             keyAlias project.env.get("ANDROID_KEY_ALIAS")
