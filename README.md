@@ -42,4 +42,19 @@ note: the main concern is allow a SaaS (software as a service) project so the na
 
 ## Typescript
 
-// Me quede en actualizacion de gradle, la generacion del build release, y faltaba instalacion de parte nativa empezando por ios
+## Env config
+- Env config that allows use the env variables in js and native. TODO: Config the ios part
+- Whe use a custom mechanism (npm script) to get the correct env variables (dev, prod, etc) because:
+ 1) The native config in ios is tricky and each update of xcode always breaks everything
+ 2) The native config for merging env variables (like local and dev) is too complicated
+ 3) The objective of this project is be useful for non white label apps and white label apps, so the env config must
+ be as much flexible as it can.
+ Advanteages:
+ 1) Maximun flexibility in build
+ 2) Zero native config in order to select the correct env file
+ Disadvantages:
+ 1) Adds a previus step before generate any build. This allow upload a release build with a dev config :s
+ So, we use this custom mechanism with this laws in order to prevent mistakes:
+ 1) Copy the desired env (eg: .env.development) and rename it as .env, the config lib will take care of the rest.
+ 2) Always use the npm script in order to generate a release build, that way we prevent mistakes like upload a release build with a dev config. Android: env file and release apk file will be generated automagically. IOs: env file will be generated and a message "You can upload with xcode now" will be shown.
+ TODO: make an npm script to do that.

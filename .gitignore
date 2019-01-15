@@ -1,5 +1,6 @@
 # Config
 .env.production
+.env
 
 # OSX
 #

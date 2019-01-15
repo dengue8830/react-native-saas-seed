@@ -15,10 +15,7 @@ import Config from 'react-native-config'
 export class CConfig {
 
   static getServerUrl(): string {
-    // TODO: deberia configurarse con .env
-    const prodUrl = 'http://google.com';
-    const devUrl = 'http://google.com';
-    return CConfig.isDevelopment() ? devUrl : prodUrl;
+    return Config.SERVER_URL;
   }
 
   static isDevelopment(): boolean {
