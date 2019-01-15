@@ -1,17 +1,6 @@
 import axios, { AxiosInstance, AxiosPromise, AxiosRequestConfig } from 'axios';
-import { ErrorExtra } from '../models/errores';
+import { ErrorBase, Errores } from '../models/errores';
 import { NetInfo } from 'react-native';
-
-export class HttpError extends ErrorExtra {
-  status: HttpErrorCode;
-
-  constructor(status: HttpErrorCode, mensaje: string = '', extra?: any) {
-    super(mensaje, extra);
-    this.status = status;
-    // Esto quita este constructor del stacktrace pero solo esta disponible en node, no browsers
-    Error.captureStackTrace(this, ErrorExtra);
-  }
-}
 
 export enum HttpErrorCode {
   NoAutorizado = 401
@@ -22,24 +11,21 @@ export interface IHttpResponse<T> {
 }
 
 class Http {
-  instance: AxiosInstance;
+  private instance: AxiosInstance;
+  private token?: string;
 
   constructor() {
     this.instance = axios.create({ timeout: 5000 });
   }
 
   setCredenciales(token: string) {
+    this.token = token;
     this.instance.defaults.headers.common.Authorization = 'bearer ' + token;
     // JWTUtils.parseJwt(resLogin.data.token).usuario.id
   }
 
-  prepararError(error: any) {
-    error.extra = JSON.stringify({
-      url: error.request.responseURL,
-      status: error.request.status,
-      method: error.config.method,
-      response: error.request.responseText,
-    });
+  getToken() {
+    return this.token;
   }
 
   private tratarRequest<T>(axiosPromise: AxiosPromise): Promise<IHttpResponse<T>> {
@@ -47,8 +33,15 @@ class Http {
       axiosPromise.then(res => {
         resolve({ data: res.data });
       }).catch(error => {
-        this.prepararError(error);
-        reject(new HttpError(error.request.status, error.response && error.response.data && error.response.data.error, error.extra));
+        const extra = {
+          url: error.request.responseURL,
+          status: error.request.status,
+          method: error.config.method,
+          response: error.request.responseText
+        };
+        /** La causa debe corresponder con una entrada del enum Errores */
+        const causa = error.response && error.response.data && error.response.data.error;
+        reject(new ErrorBase(causa || Errores.Desconocido, extra));
       });
     });
   }

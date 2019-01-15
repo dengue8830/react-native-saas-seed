@@ -1,13 +1,12 @@
 // import 'core-js';
 
-import { APIs } from '../utils/constantes';
 import DeviceInfo from 'react-native-device-info';
 import { ErrorLog } from '../models/errorLog';
-import { ErrorExtra, ErrorReactComponent } from '../models/errores';
+import { ErrorBase } from '../models/errores';
+import { ErrorUtil } from './errorUtils';
 import { AsyncAlert } from './asyncAlert';
 import RNExitApp from 'react-native-exit-app';
 import { Component } from 'react';
-import { http } from '../utils/http';
 import { SStorage } from './storage';
 const hri = require('human-readable-ids').hri;
 import { w } from './window';
@@ -78,7 +77,7 @@ export class ErrorHandler {
   static async _handleError(error: Error, isFatal: boolean, alerta?: { titulo?: string; texto?: string }) {
     try {
       console.info('ERROR_CAPTURADO', error);
-      const codigo = hri.random();
+      const codigo = (error as ErrorBase).codigo || hri.random();
       // async porque no importa el resultado si o si hay que continuar. Sino habria que ponerlo en su propio trycatch
       // Agregamos el catch por paranoico, por lo mencionado en la doc del metodo. aunque internamente _reportarError maneje el error y nunca lo vaya a arrojar
       // puede cambiarse eso y olvidarse agregar el catch aqui y seria fatal.
@@ -122,6 +121,7 @@ export class ErrorHandler {
   /**
    * Recibe un error, lo extiende con los datos del componente si es que existe y muestra el cartel correspondiente.
    * En caso de fallar sera capturado por el catch general y si ahi falla no hara nada.
+   * Ideal para manejar un error capturado de catch.
    * @param error 
    * @param componente 
    * @param isFatal 
@@ -129,7 +129,7 @@ export class ErrorHandler {
   static async handleError(options: { error?: any; errorString?: string; componente?: Component; isFatal?: boolean; alerta?: { titulo?: string; texto?: string } }) {
     const error = options.error || new Error(options.errorString);
     if (options.componente) {
-      error.extra = JSON.stringify(ErrorReactComponent.extraerInfoDeComponente(options.componente));
+      error.extra = JSON.stringify(ErrorUtil.extraerInfoDeComponente(options.componente));
     }
     ErrorHandler._handleError(error, !!options.isFatal, options.alerta);
   }
@@ -138,24 +138,26 @@ export class ErrorHandler {
    * Reporta el error extendiendolo con datos del componente.
    * No muestra ningun cartel.
    * En caso de fallar sera capturado por el catch general y si ahi falla no hara nada.
+   * Ideal para manejar un error capturado de catch.
    */
   static async reportarError(options: { error?: any; errorString?: string; componente?: Component }) {
     const error = options.error || new Error(options.errorString);
     if (options.componente) {
-      error.extra = JSON.stringify(ErrorReactComponent.extraerInfoDeComponente(options.componente));
+      error.extra = JSON.stringify(ErrorUtil.extraerInfoDeComponente(options.componente));
     }
     ErrorHandler._reportarError(error, false);
   }
 
   static async getFullErrorLog(error: Error, isFatal: boolean, codigo?: string): Promise<ErrorLog> {
     const sesion = await SStorage.getSesion();
+    const extra = (error as ErrorBase).extra;
     const errorLog: ErrorLog = {
       codigo: codigo,
       usuarioId: sesion && sesion.usuario.id,
       // stacktrace: error ? error.stack : undefined, // No ayuda en nada el stacktrace
       isFatal: isFatal,
       mensaje: error.message,
-      extra: (error as ErrorExtra).extra,
+      extra: extra && JSON.stringify(extra),
       // Datos extras que pueden ser utiles para resolver un problema
       nivelAPI: DeviceInfo.getAPILevel(),
       // redondear antes de setear

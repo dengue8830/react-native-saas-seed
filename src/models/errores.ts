@@ -1,57 +1,43 @@
-import { Component } from 'react';
-
-// TODO: determinar como manejaremos los erores, debe ser genial XD
+/**
+ * Errores posibles en la app. Tanto de logica de negocio como runtime.
+ * El objetivo es poder tratarlo de forma limpia e uniforme al estilo
+ * switch(error.message) { case Errores.Desconocido: ... };
+ * y que sirva para cualquier error posible, red, custom, etc.
+ */
 export enum Errores {
-  /** No se puede parsear undefined|null. Escribe funciones de parse nullsafe. */
+  /** Usado en parseo de los modelos de la logica de negocio. */
   Parse = 'parse-error-not-null-safe',
-  NoTieneTaxiAsignado = 'no-tiene-taxi-asignado',
-  NoTieneSesion = 'no-tiene-sesion',
-  FueraAreaCobertura = 'fuera-area-cobertura',
-  NoHayChoferesDisponibles = 'no-hay-choferes-disponibles',
-  YaNoSePuedeEditar = 'ya-no-se-puede-editar'
+  NoAutorizado = 'no-autorizado',
+  NoAutenticado = 'no-autenticado',
+  Desconocido = 'unknown'
 }
 
 /**
  * Clase que representa un error extendido para
  * incluir datos extras.
- * Se usa como base para otros tipos de errores y tambien para usarlo directamente.
+ * Se usa como base para otros tipos de errores
+ * y tambien para usarlo directamente.
  */
-export class ErrorExtra extends Error {
-  extra?: string;
+export class ErrorBase extends Error {
+  /**
+   * Cualquier dato extra que pueda servir para debuggear el error.
+   * Es un campo auxiliar para cosas pequenas y rapidas que se enviara
+   * al server para reportar el error.
+   * Para estructuras mas complejas, rigidas o extensas que no sean necesarias
+   * ser enviadas al server, crear un nuevo tipo de error
+   * que extienda de este y le de un tipo a extra o cree un nuevo atributo.
+   * Ej: un HttpError con attrs response y request que se carguen en el
+   * catch de la llamada http.
+   */
+  extra?: any;
+  /** Codigo legible para el usuario. hri: human readable id */
+  codigo?: string;
 
-  constructor(mensaje: string, extra?: any) {
+  constructor(mensaje: string, extra?: any, codigo?: string) {
     super(mensaje);
-    this.extra = extra ? JSON.stringify(extra) : undefined;
+    this.extra = extra;
+    this.codigo = codigo;
     // Esto quita este constructor del stacktrace pero solo esta disponible en node, no browsers
-    Error.captureStackTrace(this, ErrorExtra);
-  }
-}
-
-/**
- * Representa un error de navegacion;
- */
-export class ErrorNavegacion extends ErrorExtra {
-
-  constructor(mensaje: string = '', extra?: any) {
-    super(mensaje, extra);
-    // Esto quita este constructor del stacktrace pero solo esta disponible en node, no browsers
-    Error.captureStackTrace(this, ErrorExtra);
-  }
-}
-
-/**
- * Un tipo de error que sabe extraer los datos valiosos de un componente de react
- */
-export class ErrorReactComponent extends ErrorExtra {
-
-  static extraerInfoDeComponente(componente: Component) {
-    return { state: componente.state, props: componente.props };
-  }
-
-  constructor(mensaje: string, componente: Component, extra?: any) {
-    super(mensaje);
-    this.extra = JSON.stringify({ extra, ...ErrorReactComponent.extraerInfoDeComponente(componente) });
-    // Esto quita este constructor del stacktrace pero solo esta disponible en node, no browsers
-    Error.captureStackTrace(this, ErrorReactComponent);
+    Error.captureStackTrace(this, ErrorBase);
   }
 }
