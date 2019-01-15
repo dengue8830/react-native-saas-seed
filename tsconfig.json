@@ -11,6 +11,10 @@
     "strict": true,
     "target": "esnext",
     "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@estilosDeEmpresaTypes": ["./src/styles/estilosDeEmpresaTypes"]
+    }
   },
   "exclude": ["node_modules"]
 }
