@@ -54,11 +54,6 @@ android {
             storePassword project.env.get("ANDROID_STORE_PASSWORD")
             keyAlias project.env.get("ANDROID_KEY_ALIAS")
             keyPassword project.env.get("ANDROID_KEY_PASSWORD")
-            // Para usar esta forma, hay que crear un keystore y pegarlo en android/app, esta forma se explica bien en la doc de react native para generar release
-            // storeFile file(MYAPP_RELEASE_STORE_FILE)
-            // storePassword MYAPP_RELEASE_STORE_PASSWORD
-            // keyAlias MYAPP_RELEASE_KEY_ALIAS
-            // keyPassword MYAPP_RELEASE_KEY_PASSWORD
         }
     }
     buildTypes {
