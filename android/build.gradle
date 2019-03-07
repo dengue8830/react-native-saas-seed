@@ -37,6 +37,9 @@ subprojects {
     }
 }
 
+// Es bueno declarar aqui las versiones para que TODAS las libs usen esas versiones y evitar
+// problemas de versiones diferentes. No tienen que ser necesariamente estas versiones podes cambiarlas.
+// fuente: https://github.com/mauron85/react-native-background-geolocation
 ext {
     buildToolsVersion = "27.0.3"
     minSdkVersion = 16

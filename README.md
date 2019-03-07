@@ -26,10 +26,7 @@ note2: all the components use a theme you can define. See below
 - Separated files for theme and typed interfaces to be consistent
 note: the main concern is allow a SaaS (software as a service) project so the native configuration and theming (colors) are builded to be as far as possible of the core.
 
-## Crucial native modules installed in order to cover a basic maps and social app for ios and android
-- Maps
-- TODO: Facebook login
-- Background geolocation
+## Crucial native modules installed in order to cover a basic app
 - Permissions request
 - Dot Env
 - Phone info

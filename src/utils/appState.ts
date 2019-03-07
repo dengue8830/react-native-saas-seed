@@ -1,13 +1,14 @@
 import { AppState as RNAppState, AppStateStatus, NetInfo } from 'react-native';
 import { PermisosUtil, TipoPermiso, EstadoPermiso } from './permisosUtils';
-import { LocationService } from './locationService';
+// import { LocationService } from './locationService';
 import { http } from './http';
 
 export interface IAppStateListener {
   onForeground?: () => void;
   onBackground?: () => void;
   onConnectivityChange?: (isConnected: boolean) => void;
-  onGPSChange?: (enabled: boolean) => void;
+  // Comentado cosas para el gps ya que no es de una app base y necesita dependencias para eso.
+  // onGPSChange?: (enabled: boolean) => void;
   onPermisoUbicacionChange?: (estado: EstadoPermiso) => void;
 }
 
@@ -16,7 +17,7 @@ class AppState {
   private interval?: NodeJS.Timeout;
   private intervalTime = 10000;
   isConnected: boolean;
-  isGPSEnabled: boolean;
+  // isGPSEnabled: boolean;
   estadoPermisoUbicacion: EstadoPermiso;
 
   constructor() {
@@ -25,7 +26,7 @@ class AppState {
     this.listeners = [];
     // Por defecto asumimos que esta conectado sino no habria podido entrar a la app
     this.isConnected = true;
-    this.isGPSEnabled = false;
+    // this.isGPSEnabled = false;
     this.estadoPermisoUbicacion = EstadoPermiso.SinDeterminar;
   }
 
@@ -83,12 +84,11 @@ class AppState {
         this.estadoPermisoUbicacion = estadoPermisoUbicacion;
         this.listeners.forEach((listener) => listener.onPermisoUbicacionChange && listener.onPermisoUbicacionChange(estadoPermisoUbicacion));
       }
-      const isGPSEnabled = (await LocationService.getStatus()).locationServicesEnabled;
-      if (this.isGPSEnabled !== isGPSEnabled) {
-        this.isGPSEnabled = isGPSEnabled;
-        this.listeners.forEach((listener) => listener.onGPSChange && listener.onGPSChange(isGPSEnabled));
-      }
-      // const isConnected = await NetInfo.isConnected.fetch();
+      // const isGPSEnabled = (await LocationService.getStatus()).locationServicesEnabled;
+      // if (this.isGPSEnabled !== isGPSEnabled) {
+      //   this.isGPSEnabled = isGPSEnabled;
+      //   this.listeners.forEach((listener) => listener.onGPSChange && listener.onGPSChange(isGPSEnabled));
+      // }
       const isConnected = await http.isConnected();
       if (this.isConnected !== isConnected) {
         this.isConnected = isConnected;

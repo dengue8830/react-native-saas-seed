@@ -80,7 +80,6 @@ android {
 
 dependencies {
     implementation project(':react-native-exit-app')
-    implementation project(':react-native-mauron85-background-geolocation')
     implementation project(':react-native-config')
     implementation project(':react-native-device-info')
     implementation fileTree(dir: "libs", include: ["*.jar"])

@@ -19,7 +19,6 @@ import { CConfig } from '../utils/config';
 import 'moment/locale/es';
 import { Rutas } from '../utils/rutas';
 import { LoginScreen } from './compartido/LoginScreen';
-import { GpsScreen } from './compartido/GpsScreen';
 
 ErrorHandler.init();
 
@@ -83,7 +82,6 @@ export default class App extends Component<Props, State> implements IAppStateLis
               <Route exact={true} path={'/'} component={TestVisualScreen} />
               {/* <Route exact={true} path={Rutas.splash} component={SplashScreen} /> */}
               <Route exact={true} path={Rutas.login} component={LoginScreen} />
-              <Route exact={true} path={Rutas.helloWorld} component={GpsScreen} />
             </ErrorBoundary>
             {/* <Route exact={true} path={Rutas.sinConexion} component={SinConexionScreen} /> */}
             <SpinnerGlobalConectado />

@@ -1,7 +1,7 @@
 import { PermissionsAndroid, Platform, Permission } from 'react-native';
 import Permissions from 'react-native-permissions';
 // import firebase from 'react-native-firebase';
-import BackgroundGeolocation from 'react-native-mauron85-background-geolocation';
+// import BackgroundGeolocation from 'react-native-mauron85-background-geolocation';
 
 export enum TipoPermisoUbicacion {
   SIEMPRE = 'always',
@@ -67,8 +67,9 @@ export class PermisosUtil {
   }
 
   static abrirConfiguraciones() {
+    // TODO: Encontrar una forma sin dependencias de abrir las configuraciones
     // Permissions.openSettings();
-    BackgroundGeolocation.showAppSettings();
+    // BackgroundGeolocation.showAppSettings();
   }
 
   // static async solicitarPermisosParaRecibirEnviarPush(): Promise<boolean> {

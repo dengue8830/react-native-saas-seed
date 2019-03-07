@@ -13,7 +13,8 @@ class NavegacionService {
     if (!sesion) {
       return this.history.push(Rutas.login);
     }
-    this.history.push(Rutas.helloWorld);
+    console.warn('no navego a ningun lado');
+    // this.history.push(Rutas.helloWorld);
   }
 
 }
