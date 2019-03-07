@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Header as NBHeader, Left, Body, Right, Button as NBButton, } from 'native-base';
-import { ViewStyle, ActivityIndicatorProps, View } from 'react-native';
+import { ViewStyle, ActivityIndicatorProps } from 'react-native';
 import { estilosDeEmpresa } from '../../../styles/estilosDeEmpresa';
 import { Title } from './Title';
 import { TouchableIcon } from './TouchableIcon';
-import Color from 'color';
 
 interface IProps {
   style?: ViewStyle | Array<ViewStyle>;
@@ -18,12 +17,11 @@ interface IProps {
 export const Header = (props: IProps) => {
   let style = props.style || {};
   style = { backgroundColor: estilosDeEmpresa.defecto.colorPrimario, ...style };
-  const color = Color(style.backgroundColor);
   return (
     <NBHeader
       style={style}
       androidStatusBarColor={props.androidStatusBarColor || style.backgroundColor}
-      iosBarStyle={color.isLight() ? 'dark-content' : 'light-content'}
+      iosBarStyle={'dark-content'}
     >
       <Left>
         {
