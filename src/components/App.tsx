@@ -6,7 +6,6 @@ import { DropdownAlert } from './compartido/base/DropdownAlert';
 import { toastService } from '../utils/toastService';
 // import { fcmService } from '../utils/fcmService';
 import { ErrorHandler } from '../utils/errorHandler';
-import { navegacionService } from '../utils/navegacionService';
 import { StatusBar } from 'react-native';
 import { appState, IAppStateListener } from '../utils/appState';
 import { EstadoPermiso } from '../utils/permisosUtils';
