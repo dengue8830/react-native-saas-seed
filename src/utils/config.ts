@@ -21,4 +21,12 @@ export class CConfig {
   static isDevelopment(): boolean {
     return process.env.NODE_ENV === 'development';
   }
+
+  static getAppleAppId(): number {
+    return Config.APPLE_APP_ID; // Replace
+  }
+
+  static getAndroidAppId(): string {
+    return Config.ANDROID_APP_ID; // Replace
+  }
 }

@@ -34,6 +34,7 @@ export const BannerCard = (props: IProps) =>
       backgroundColor: cardColores.fondo,
       borderRadius: 2,
       padding: 10,
-      marginBottom: 5
+      marginBottom: 5,
+      ...props.containerStyle
     }}
   />;

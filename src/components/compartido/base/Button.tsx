@@ -20,9 +20,6 @@ interface IProps {
   theme?: IThemeButton;
 }
 
-/**
- * TODO: Customizar los colores, deberia respetar la api de colores. Primero hacerlo generico desde api y luego permtitir pasar colores, sera mas facil.
- */
 export const Button = (props: IProps) => {
   let style = computarTheme(props);
   return (

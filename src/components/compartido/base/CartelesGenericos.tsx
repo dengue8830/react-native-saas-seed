@@ -87,7 +87,7 @@ export function CartelGenerico(props: ICartelGenericoProps) {
  */
 export function CartelVacio(props: ICartelGenericoProps) {
   // const imgIconName = noTieneImagen(props) ? 'ios-filing-outline' : props.imgIconName;
-  const imgIconName = 'ios-filing-outline';
+  const imgIconName = props.imgIconName || 'ios-filing-outline';
   const texto = props.texto || 'Sin resultados';
   return CartelGenerico({ ...props, texto, imgIconName });
 }

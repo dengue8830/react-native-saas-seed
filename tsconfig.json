@@ -13,7 +13,12 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "@estilosDeEmpresaTypes": ["./src/styles/estilosDeEmpresaTypes"]
+      "@estilosDeEmpresaTypes": ["./src/styles/estilosDeEmpresaTypes"],
+      "@estilosDeEmpresa": ["./src/styles"],
+      "@utils": ["./src/utils"],
+      "@models": ["./src/models"],
+      "@base": ["./src/components/compartido/base"],
+      "@compartido": ["./src/components/compartido"]
     }
   },
   "exclude": ["node_modules"]

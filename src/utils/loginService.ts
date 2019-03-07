@@ -21,6 +21,7 @@ class LoginService {
   async cerrarSesionYnavegar() {
     await apis.cerrarSesion();
     await SStorage.cerrarSesion();
+    await http.clearCredenciales();
     // LocationService.stopTracker();
     await navegacionService.navegarDondeCorresponda();
   }

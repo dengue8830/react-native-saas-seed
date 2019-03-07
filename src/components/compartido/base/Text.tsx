@@ -4,7 +4,7 @@ import { StyleProp, TextStyle } from 'react-native';
 import { estilosDeEmpresa } from '../../../styles/estilosDeEmpresa';
 
 export interface ITextProps { // extends NativeBase.Text
-  children?: string | (string | Element)[];
+  children?: any; // number | string | (string | Element)[]
   color?: string;
   size?: number;
   /** No "style" para mantener la interfaz con los wrappers que se puedan hacer y que sean intercambiables */
@@ -12,6 +12,7 @@ export interface ITextProps { // extends NativeBase.Text
   isNote?: boolean;
   // uppercase?: boolean;
   onPress?: () => void;
+  numberOfLines?: number;
 }
 
 export const Text = (props: ITextProps) => {
@@ -35,8 +36,9 @@ export const Text = (props: ITextProps) => {
       ]}
       note={props.isNote}
       onPress={props.onPress}
+      numberOfLines={props.numberOfLines}
     >
-      {props.children as any}
+      {props.children}
     </NBText>
   );
 }

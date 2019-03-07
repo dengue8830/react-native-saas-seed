@@ -24,6 +24,10 @@ class Http {
     // JWTUtils.parseJwt(resLogin.data.token).usuario.id
   }
 
+  clearCredenciales() {
+    this.instance.defaults.headers.common.Authorization = undefined;
+  }
+
   getToken() {
     return this.token;
   }

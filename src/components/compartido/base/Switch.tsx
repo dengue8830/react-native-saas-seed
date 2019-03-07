@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Switch as NBSwitch } from 'native-base';
 import { estilosDeEmpresa } from '../../../styles/estilosDeEmpresa';
-import { PlatformUtils } from '../../../utils/PlatformUtils';
+import { PlatformUtils } from '../../../utils/platformUtils';
 
 interface IProps {
   value: boolean,

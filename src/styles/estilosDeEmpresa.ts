@@ -8,10 +8,10 @@ const defecto: IDefecto = merge({
   colorError: '#e91e63',
   screen: {
     colores: {
-      fondo: '#f2f2f2',
+      fondo: '#ffffff', // #f2f2f2
       // Estos en funcion de fondo
-      note: '#757575',
-      contraste: '#4c4c4c',
+      note: '#9C8486', // #757575
+      contraste: '#7E6F70', // #4c4c4c
       disabled: '#4c4c4c'
     }
   },
@@ -162,7 +162,7 @@ export const estilosDeEmpresa: IEstilosDeEmpresa = merge({
     card: {
       normal: {
         colores: {
-          fondo: 'white',
+          fondo: '#f2f2f2',
           contraste: defecto.screen.colores.contraste,
           note: defecto.screen.colores.note,
           separador: '#eeeeee'

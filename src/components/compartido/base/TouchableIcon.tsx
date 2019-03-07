@@ -19,6 +19,22 @@ export interface ITouchableIconProps {
   isError?: boolean;
   isSuccess?: boolean;
   isDisabled?: boolean;
+  /**
+   * Agrega los estilos necesarios para logar un icono dentro de un contenedor
+   * redondeado. Ideal cuando un icono solo se pierde en un fondo de color variable como una foto.
+   *
+   * Usamos el size para hacer crecer el contenedor proporcionalmente,
+   * si el icono de por si es grande y se acerca mucho al contenedor (ej md-share)
+   * aumentar el contenedor con containerStyle={{ width: masgrande, height: masgrande }},
+   * o de ultima agregar un size para el contenedor pero no seria lo ideal ya que solo algunos iconos
+   * se acercan al borde.
+   *
+   * Usarlo en combinacion de, por ejemplo:
+   * color='white'
+   * bgColor='black'
+   * isRounded={true}
+   */
+  isRounded?: boolean;
 }
 
 const defaultProps: ITouchableIconProps = {
@@ -35,7 +51,8 @@ const defaultProps: ITouchableIconProps = {
   isLoading: false,
   isError: false,
   isSuccess: false,
-  isDisabled: false
+  isDisabled: false,
+  isRounded: false
 };
 
 export const TouchableIcon = (props: ITouchableIconProps) => {
@@ -53,7 +70,8 @@ export const TouchableIcon = (props: ITouchableIconProps) => {
     isLoading = defaultProps.isLoading,
     isError = defaultProps.isError,
     isSuccess = defaultProps.isSuccess,
-    isDisabled = defaultProps.isDisabled
+    isDisabled = defaultProps.isDisabled,
+    isRounded = defaultProps.isRounded
   } = props;
 
   return (
@@ -63,7 +81,15 @@ export const TouchableIcon = (props: ITouchableIconProps) => {
         {
           backgroundColor: bgColor,
           borderRadius: 10,
-          justifyContent: 'center'
+          justifyContent: 'center',
+          // alignItems: 'center',
+          // width: size,
+          // height: size
+        },
+        isRounded && {
+          width: size,
+          height: size,
+          alignItems: 'center'
         },
         containerStyle
       ]}
@@ -71,7 +97,13 @@ export const TouchableIcon = (props: ITouchableIconProps) => {
     >
       {
         isLoading ?
-          <ActivityIndicator size='small' color={color} />
+          /**
+           * Agregamos iconStyle porque sino el padding que se le da al icon se va cuando aparece el loading,
+           * sino habria que wrappearlo en un container y que se le pase estilos al container y eso
+           * si habria que analizarlo para ver que no rompe nuestro template.
+           * TODO: Arruinara cuando aparece en un input?
+           */
+          <ActivityIndicator size='small' color={color} style={iconStyle} />
           :
           <Icon
             name={name}

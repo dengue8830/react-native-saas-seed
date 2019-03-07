@@ -3,6 +3,8 @@ import { Header as NBHeader, Left, Body, Right, Button as NBButton, } from 'nati
 import { ViewStyle, ActivityIndicatorProps, View } from 'react-native';
 import { estilosDeEmpresa } from '../../../styles/estilosDeEmpresa';
 import { Title } from './Title';
+import { TouchableIcon } from './TouchableIcon';
+import Color from 'color';
 
 interface IProps {
   style?: ViewStyle | Array<ViewStyle>;
@@ -10,15 +12,18 @@ interface IProps {
   left?: React.ReactElement<any>;
   titulo?: string;
   center?: React.ReactElement<any>;
+  androidStatusBarColor?: string;
 }
 
 export const Header = (props: IProps) => {
   let style = props.style || {};
   style = { backgroundColor: estilosDeEmpresa.defecto.colorPrimario, ...style };
+  const color = Color(style.backgroundColor);
   return (
     <NBHeader
       style={style}
-      androidStatusBarColor={style.backgroundColor}
+      androidStatusBarColor={props.androidStatusBarColor || style.backgroundColor}
+      iosBarStyle={color.isLight() ? 'dark-content' : 'light-content'}
     >
       <Left>
         {
@@ -47,6 +52,11 @@ export const Header = (props: IProps) => {
       </Right>
     </NBHeader>
   );
+};
+
+// Usar named functions ayuda el debugging y permite acceder al name en los renderChild
+Header.Atras = function Atras(props: { onPress: () => void }) {
+  return <TouchableIcon name='ios-arrow-back-outline' {...props} />
 };
 
 function renderChild(element: React.ReactElement<any>): React.ReactElement<any> {

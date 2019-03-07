@@ -12,7 +12,7 @@ import { appState, IAppStateListener } from '../utils/appState';
 import { EstadoPermiso } from '../utils/permisosUtils';
 import { SpinnerGlobalStateContainer } from '../containers/SpinnerGlobalStateContainer';
 import { loginService } from '../utils/loginService';
-import { ErrorBoundary, MsjErrorSalir } from './compartido/base/ErrorBoundary';
+import { ErrorBoundary, MsjErrorSalirScreen } from './compartido/base/ErrorBoundary';
 import { estilosDeEmpresa } from '../styles/estilosDeEmpresa';
 import { TestVisualScreen } from './test-visual-estilos-genericos/TestVisualScreen';
 import { SplashScreen } from './compartido/SplashScreen';
@@ -80,7 +80,7 @@ export default class App extends Component<Props, State> implements IAppStateLis
               showHideTransition={estilosDeEmpresa.componentes.statusBar.showHideTransition as any}
               hidden={true}
             />
-            <ErrorBoundary msj={MsjErrorSalir}>
+            <ErrorBoundary msj={MsjErrorSalirScreen}>
               <Route exact={true} path={'/'} component={TestVisualScreen} />
               {/* <Route exact={true} path={Rutas.splash} component={SplashScreen} /> */}
               <Route exact={true} path={Rutas.login} component={LoginScreen} />
