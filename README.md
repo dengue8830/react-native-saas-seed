@@ -1,4 +1,4 @@
-# WARNING: Outdated project, it have some useful parts but I don't recommend to follow this structure any more
+# :warning: WARNING: Outdated project, it have some useful parts but I don't recommend to follow this structure any more
 
 # react-native-saas-seed
 Seed project with all the basics covered to build your SaaS project.
