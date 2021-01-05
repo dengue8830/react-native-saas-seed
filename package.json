@@ -11,7 +11,7 @@
     "build-android-release": "cd android/ && ./gradlew assembleRelease"
   },
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.21.1",
     "formik": "1.4.2",
     "human-readable-ids": "1.0.4",
     "moment": "2.23.0",
