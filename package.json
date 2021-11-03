@@ -27,7 +27,7 @@
     "react-native-permissions": "1.1.1",
     "react-router-native": "4.3.0",
     "unstated": "2.1.1",
-    "validator": "10.10.0"
+    "validator": "13.7.0"
   },
   "devDependencies": {
     "@types/jest": "23.3.12",
